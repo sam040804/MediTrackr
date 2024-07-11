@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanning Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        .option {
+            display: inline-block;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .option img {
+            width: 100px;
+            height: auto;
+        }
+        .option p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="option" onclick="selectOption('iris')">
+            <img src="iris_scanner_symbol.png" alt="Iris Scanner">
+            <p>Iris Scanner</p>
+        </div>
+        <div class="option" onclick="selectOption('fingerprint')">
+            <img src="fingerprint_symbol.png" alt="Fingerprint">
+            <p>Fingerprint</p>
+        </div>
+        <div class="option" onclick="selectOption('qr')">
+            <img src="qr_scanner_symbol.png" alt="QR Scanner">
+            <p>QR Scanner</p>
+        </div>
+    </div>
+
+    <script>
+        function selectOption(option) {
+            // You can handle the selected option here
+            alert('Selected Option: ' + option);
+        }
+    </script>
+</body>
+</html>
+
