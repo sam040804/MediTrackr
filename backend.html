@@ -1,0 +1,11 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the selected scanning option
+    $selected_option = $_POST['option'];
+
+    // Process the selected option (in this example, we'll just print it)
+    echo "Selected option: " . $selected_option;
+
+    // You can perform further processing here, such as database operations, etc.
+}
+?>
