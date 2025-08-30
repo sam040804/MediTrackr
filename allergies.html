@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allergies Information</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Allergies Information</h2>
+    <form id="allergiesForm">
+      <label for="allergyName">Allergy Name:</label>
+      <input type="text" id="allergyName" name="allergyName" required>
+
+      <label for="reaction">Reaction:</label>
+      <input type="text" id="reaction" name="reaction" required>
+
+      <label for="severity">Severity:</label>
+      <select id="severity" name="severity" required>
+        <option value="">Select severity</option>
+        <option value="Mild">Mild</option>
+        <option value="Moderate">Moderate</option>
+        <option value="Severe">Severe</option>
+      </select>
+
+      <button type="submit">Next →</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("allergiesForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const allergy = {
+        name: document.getElementById("allergyName").value,
+        reaction: document.getElementById("reaction").value,
+        severity: document.getElementById("severity").value
+      };
+
+      // Save in localStorage
+      localStorage.setItem("userAllergy", JSON.stringify(allergy));
+
+      // Success message
+      alert("✅ Allergy details saved successfully!");
+
+      // Go to next page
+      window.location.href = "blooddonors.html";
+    });
+  </script>
+</body>
+</html>

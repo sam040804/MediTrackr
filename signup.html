@@ -1,75 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meditrackr - Sign Up</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input[type="text"], .form-group input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .form-group button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - MediTrackr</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Meditrackr - Sign Up</h2>
-        <form action="/signup" method="POST">
-            <div class="form-group">
-                <label for="aadhaar_number">Aadhaar Number</label>
-                <input type="text" id="aadhaar_number" name="aadhaar_number" placeholder="Enter Aadhaar Number" required>
-            </div>
-            <div class="form-group">
-                <label for="phone_number">Phone Number</label>
-                <input type="text" id="phone_number" name="phone_number" placeholder="Enter Phone Number" required>
-            </div>
-            <!-- Add more fields for sign up if needed -->
-            <div class="form-group">
-                <button type="submit">Sign Up</button>
-            </div>
-        </form>
-    </div>
+  <div class="form-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Create a password" required>
+
+      <button type="submit" class="btn">Next →</button>
+    </form>
+    <p class="extra-text">Already have an account? <a href="index.html">Login</a></p>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value.trim();
+
+      if(name && email && password){
+        // Store temporarily in localStorage (can connect to backend later)
+        localStorage.setItem("userName", name);
+        localStorage.setItem("userEmail", email);
+
+        // Redirect to personal details page
+        window.location.href = "personal.html";
+      } else {
+        alert("⚠️ Please fill all details before proceeding.");
+      }
+    });
+  </script>
 </body>
 </html>
-
