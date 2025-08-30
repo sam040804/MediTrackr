@@ -1,99 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical History</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        .profile-photo {
-            float: right;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-left: 20px;
-            background-color: #ccc;
-        }
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .form-group input[type="text"],
-        .form-group textarea {
-            width: calc(100% - 12px);
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .form-group textarea {
-            height: 100px;
-        }
-        .form-group button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical History - MediTrackr</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #45a049;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="profile-photo">
-            <!-- Placeholder for profile photo -->
-            <img src="placeholder.jpg" alt="Profile Photo">
-        </div>
-        <h2>Medical History</h2>
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter Name" required>
-            </div>
-            <div class="form-group">
-                <label for="aadhar">Aadhar Number:</label>
-                <input type="text" id="aadhar" name="aadhar" placeholder="Enter Aadhar Number" required>
-            </div>
-            <div class="form-group">
-                <label for="past_medications">Past Medications:</label>
-                <textarea id="past_medications" name="past_medications" placeholder="Enter Past Medications"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="allergies">Allergies:</label>
-                <textarea id="allergies" name="allergies" placeholder="Enter Allergies"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="present_medications">Present Medications:</label>
-                <textarea id="present_medications" name="present_medications" placeholder="Enter Present Medications"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit">Save</button>
-            </div>
-        </form>
-    </div>
+  <div class="form-container">
+    <h2>Medical History</h2>
+    <form id="medicalForm">
+      <label>Do you have any chronic illnesses?</label>
+      <input type="text" placeholder="e.g., Diabetes, Hypertension">
+
+      <label>Past Surgeries</label>
+      <input type="text" placeholder="e.g., Appendectomy, Knee Surgery">
+
+      <label>Current Medications</label>
+      <input type="text" placeholder="e.g., Metformin, Aspirin">
+
+      <label>Allergies</label>
+      <input type="text" placeholder="e.g., Penicillin, Nuts">
+
+      <label>Additional Notes</label>
+      <textarea rows="4" placeholder="Any other medical details..."></textarea>
+
+      <button type="submit" class="btn">Next →</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("medicalForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      // Redirect to prescription page after filling
+      window.location.href = "prescription.html";
+    });
+  </script>
 </body>
 </html>

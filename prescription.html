@@ -1,100 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Prescription</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .form-group input[type="text"],
-        .form-group input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .timing-box {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .timing-box label {
-            font-weight: bold;
-        }
-        .form-group button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescription - MediTrackr</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Medical Prescription</h2>
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="med-name">Medicine Name:</label>
-                <input type="text" id="med-name" name="med-name" required>
-            </div>
-            <div class="form-group">
-                <label for="med-num">Medicine Number:</label>
-                <input type="text" id="med-num" name="med-num" required>
-            </div>
-            <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" required>
-            </div>
-            <div class="form-group">
-                <div class="timing-box">
-                    <label>Morning:</label>
-                    <input type="text" name="morning">
-                </div>
-                <div class="timing-box">
-                    <label>Afternoon:</label>
-                    <input type="text" name="afternoon">
-                </div>
-                <div class="timing-box">
-                    <label>Evening:</label>
-                    <input type="text" name="evening">
-                </div>
-                <div class="timing-box">
-                    <label>Night:</label>
-                    <input type="text" name="night">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="doctor-name">Prescribing Doctor Name:</label>
-                <input type="text" id="doctor-name" name="doctor-name" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Send Prescription to Pharmacy</button>
-            </div>
-        </form>
-    </div>
+  <div class="form-container">
+    <h2>Prescription Details</h2>
+    <form id="prescriptionForm">
+
+      <label for="doctorName">Doctor's Name</label>
+      <input type="text" id="doctorName" required>
+
+      <label for="hospital">Hospital / Clinic</label>
+      <input type="text" id="hospital" required>
+
+      <label for="date">Prescription Date</label>
+      <input type="date" id="date" required>
+
+      <label for="medicines">Medicines Prescribed</label>
+      <textarea id="medicines" placeholder="Eg: Paracetamol 500mg - Twice a day"></textarea>
+
+      <label for="instructions">Additional Instructions</label>
+      <textarea id="instructions" placeholder="Eg: Take after meals, avoid oily food"></textarea>
+
+      <button type="submit" class="btn">Next →</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("prescriptionForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      let prescriptionData = {
+        doctor: document.getElementById("doctorName").value.trim(),
+        hospital: document.getElementById("hospital").value.trim(),
+        date: document.getElementById("date").value,
+        medicines: document.getElementById("medicines").value.trim(),
+        instructions: document.getElementById("instructions").value.trim()
+      };
+
+      // Save data in localStorage
+      localStorage.setItem("userPrescription", JSON.stringify(prescriptionData));
+
+      // Go to next page
+      window.location.href = "scan.html";
+    });
+  </script>
 </body>
 </html>
-
